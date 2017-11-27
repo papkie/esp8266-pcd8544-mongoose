@@ -18,22 +18,16 @@ All text above, and the splash screen must be included in any redistribution
 #ifndef _ADAFRUIT_PCD8544_H
 #define _ADAFRUIT_PCD8544_H
 
-#if defined(ARDUINO) && ARDUINO >= 100
-  #include "Arduino.h"
-#else
-  #include "WProgram.h"
-  #include "pins_arduino.h"
-#endif
-
-#include "Adafruit_GFX.h"
 #include <SPI.h>
+#include "Arduino.h"
+#include <Adafruit_GFX.h>
 
-#if  defined(__SAM3X8E__) || defined(ARDUINO_ARCH_SAMD)
+#ifdef __SAM3X8E__
   typedef volatile RwReg PortReg;
   typedef uint32_t PortMask;
 #else
-  typedef volatile uint8_t PortReg;
-  typedef uint8_t PortMask;
+  typedef volatile uint32_t PortReg;
+  typedef uint32_t PortMask;
 #endif
 
 

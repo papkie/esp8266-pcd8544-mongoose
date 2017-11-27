@@ -1,4 +1,4 @@
-#include "Adafruit_PCD8544.hpp"
+#include "Adafruit_PCD8544.h"
 
 #ifdef __cplusplus
 extern "C"

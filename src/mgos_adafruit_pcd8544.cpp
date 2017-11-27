@@ -1,4 +1,4 @@
-#include "mgos_adafruit_pcd8544.hpp"
+#include "mgos_adafruit_pcd8544.h"
 
 Adafruit_PCD8544* mgos_PCD8544_create(char SCLK, char DIN, char DC, char CS, char RST) {
     return new Adafruit_PCD8544(SCLK, DIN, DC, CS, RST);
@@ -40,6 +40,6 @@ void mgos_PCD8544_drawPixel(Adafruit_PCD8544* ctx, short x, short y, unsigned sh
 }
 
 unsigned char mgos_PCD8544_getPixel(Adafruit_PCD8544* ctx, char x, char y) {
-    if (ctx == nullptr) return;
+    if (ctx == nullptr) return 0;
     return ctx->getPixel(x, y);
 }

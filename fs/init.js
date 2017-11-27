@@ -9,6 +9,6 @@ let SCLK = 1,
 
 const lcd = PCD8544.init(SCLK, DIN, DC, RST)
 
-Timer.set(10000 /* 1 sec */ , true /* repeat */ , function () {
+Timer.set(1000 /* 1 sec */ , true /* repeat */ , function () {
   print("Alive")
 }, null);
