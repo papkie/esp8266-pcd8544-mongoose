@@ -42,7 +42,7 @@ All text above, and the splash screen below must be included in any redistributi
 #include <stdlib.h>
 
 #include <Adafruit_GFX.h>
-#include "Adafruit_PCD8544.h"
+#include "Adafruit_PCD8544.hpp"
 
 #ifndef _BV
   #define _BV(bit) (1<<(bit))
@@ -98,6 +98,10 @@ static uint8_t xUpdateMin, xUpdateMax, yUpdateMin, yUpdateMax;
 
 
 static void updateBoundingBox(uint8_t xmin, uint8_t ymin, uint8_t xmax, uint8_t ymax) {
+  (void)xmin; //to quiet unused variables error
+  (void)ymin;
+  (void)xmax;
+  (void)ymax;
 #ifdef enablePartialUpdate
   if (xmin < xUpdateMin) xUpdateMin = xmin;
   if (xmax > xUpdateMax) xUpdateMax = xmax;

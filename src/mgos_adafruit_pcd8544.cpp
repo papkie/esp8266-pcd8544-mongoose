@@ -1,44 +1,45 @@
-#include "mgos_adafruit_pcd8544.h"
+#include "mgos_adafruit_pcd8544.hpp"
 
-Adafruit_PCD8544 mgos_PCD8544_create(int8_t SCLK, int8_t DIN, int8_t DC, int8_t CS, int8_t RST) {
+Adafruit_PCD8544* mgos_PCD8544_create(char SCLK, char DIN, char DC, char CS, char RST) {
     return new Adafruit_PCD8544(SCLK, DIN, DC, CS, RST);
 }
 
-void mgos_PCD8544_begin(Adafruit_PCD8544* ctx, uint8_t contrast = 40, uint8_t bias = 0x04) {
-    if (rtc == nullptr) return;
-    ctx->begin(contrast, bias)
+void mgos_PCD8544_begin(Adafruit_PCD8544* ctx, unsigned char contrast = 40, unsigned char bias = 0x04) {
+    if (ctx == nullptr) return;
+    ctx->begin(contrast, bias);
 }
 
-void mgos_PCD8544_command(Adafruit_PCD8544* ctx, uint8_t c) {
-    if (rtc == nullptr) return;
+void mgos_PCD8544_command(Adafruit_PCD8544* ctx, unsigned char c) {
+    if (ctx == nullptr) return;
     ctx->command(c);
 }
 
-void mgos_PCD8544_data(Adafruit_PCD8544* ctx, uint8_t c) {
-    if (rtc == nullptr) return;
+void mgos_PCD8544_data(Adafruit_PCD8544* ctx, unsigned char c) {
+    if (ctx == nullptr) return;
     ctx->data(c);
 }
 
-void mgos_PCD8544_setContrast(Adafruit_PCD8544* ctx, uint8_t val) {
-    if (rtc == nullptr) return;
+void mgos_PCD8544_setContrast(Adafruit_PCD8544* ctx, unsigned char val) {
+    if (ctx == nullptr) return;
     ctx->setContrast(val);
 }
 
 void mgos_PCD8544_clearDisplay(Adafruit_PCD8544* ctx) {
-    if (rtc == nullptr) return;
+    if (ctx == nullptr) return;
     ctx->clearDisplay();
 }
 
 void mgos_PCD8544_display(Adafruit_PCD8544* ctx) {
-    if (rtc == nullptr) return;
+    if (ctx == nullptr) return;
     ctx->display();
 }
 
-void mgos_PCD8544_drawPixel(Adafruit_PCD8544* ctx, int16_t x, int16_t y, uint16_t color) {
-    if (rtc == nullptr) return;
+void mgos_PCD8544_drawPixel(Adafruit_PCD8544* ctx, short x, short y, unsigned short color) {
+    if (ctx == nullptr) return;
     ctx->drawPixel(x, y, color);
 }
-uint8_t mgos_PCD8544_getPixel(Adafruit_PCD8544* ctx, int8_t x, int8_t y) {
-    if (rtc == nullptr) return;
-    ctx->getPixel(x, y);
+
+unsigned char mgos_PCD8544_getPixel(Adafruit_PCD8544* ctx, char x, char y) {
+    if (ctx == nullptr) return;
+    return ctx->getPixel(x, y);
 }
